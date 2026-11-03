@@ -1,0 +1,72 @@
+:root{
+  --paper:#f2f4f6; --surface:#ffffff; --ink:#13222e; --muted:#4f6070;
+  --line:#cfd8df; --teal:#1f6f78; --tag:#e8b923; --tag-ink:#2b2200;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1a22; --surface:#16252f; --ink:#e7edf1; --muted:#9db0bd;
+    --line:#2b3d4a; --teal:#6cc3cc;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1a22; --surface:#16252f; --ink:#e7edf1; --muted:#9db0bd;
+  --line:#2b3d4a; --teal:#6cc3cc;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--sans)}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--tag);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:3.5rem;flex-wrap:wrap}
+.nav .brand{font:600 1.15rem var(--serif);color:var(--ink);text-decoration:none}
+.nav ul{display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav ul a{color:var(--muted);text-decoration:none;font-size:.95rem;font-weight:500}
+.nav ul a:hover{color:var(--ink)}
+.theme{background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:.25rem .6rem;font:500 .85rem var(--sans);cursor:pointer}
+
+/* hero: evidence-tag */
+.hero{padding:4rem 0 3rem}
+.hero .wrap{display:grid;gap:2.5rem;grid-template-columns:1.4fr 1fr;align-items:center}
+.hero h1{font:600 clamp(2.4rem,6vw,4rem)/1.05 var(--serif);margin:0 0 1rem;letter-spacing:-.01em}
+.hero p.lead{font:400 1.35rem/1.45 var(--serif);color:var(--muted);margin:0 0 1.75rem;max-width:32rem}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.65rem 1.1rem;border-radius:6px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn:hover{background:var(--tag);border-color:var(--tag);color:var(--tag-ink)}
+.tag{background:var(--tag);color:var(--tag-ink);padding:1.4rem 1.5rem 1.5rem;border-radius:4px 22px 4px 4px;box-shadow:6px 6px 0 var(--ink);position:relative;transform:rotate(1.5deg)}
+.tag::before{content:"";position:absolute;top:.8rem;right:1rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--paper);border:2px solid var(--tag-ink)}
+.tag dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.45rem 1rem;font-size:.95rem}
+.tag dt{font-weight:600}
+.tag dd{margin:0}
+.tag h2{font:600 1.3rem var(--serif);margin:0 0 .9rem}
+
+/* sections */
+section{padding:3rem 0;border-top:1px solid var(--line)}
+h2.title{font:600 2rem/1.2 var(--serif);margin:0 0 1.5rem}
+.prose{max-width:42rem}
+.prose p{margin:0 0 1rem}
+.grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:1.25rem}
+.card h3{font:600 1.25rem var(--serif);margin:0 0 .5rem}
+.card p{margin:0;color:var(--muted);font-size:1rem}
+.edu{border-left:4px solid var(--teal);padding:.25rem 0 .25rem 1.1rem;max-width:42rem}
+.edu h3{font:600 1.35rem var(--serif);margin:0}
+.edu p{margin:.25rem 0 0;color:var(--muted)}
+.todo{border:1.5px dashed var(--line);border-radius:8px;padding:1.1rem 1.25rem;color:var(--muted);max-width:42rem}
+.skills{display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:0;list-style:none}
+.skills li{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:.3rem .85rem;font-size:.95rem}
+.contact-list{list-style:none;padding:0;margin:0 0 1rem;display:grid;gap:.6rem}
+footer{border-top:1px solid var(--line);padding:1.75rem 0;color:var(--muted);font-size:.9rem}
+
+@media (max-width:760px){
+  .hero{padding-top:2.5rem}
+  .hero .wrap{grid-template-columns:1fr}
+  .tag{transform:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
